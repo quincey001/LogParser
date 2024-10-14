@@ -47,7 +47,6 @@ To set up and run this project on your local machine, follow these steps:
 * Input File: The project expects a file named ChangeHistory.txt
 * Format:
 
-    '''bash
     12/01/2004, Johnason
     *) Add code to delete transactions from nist_ipa
     Changed files:
@@ -67,8 +66,6 @@ To set up and run this project on your local machine, follow these steps:
 
 * Output File: The parsed data will be saved in a file called ParsedChangeHistory.txt in the Resource folder.
 * Format:
-
-    '''bash
     Change ID:4|
     Changed Date:12/01/2004|
     Changed By: Johnason
