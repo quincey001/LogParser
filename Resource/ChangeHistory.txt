@@ -1,0 +1,154 @@
+﻿Change History:
+11/12/2004, Simon
+*) Added this file.
+
+11/16/2004, Johnason
+
+*) Support saving TDF file
+Changed Files: SystemConfig.cpp/h
+Added files: TDF.cpp/h
+Description:
+- Add NIST_SUPPORT in cls_cls.cfg
+- Add cls_nist.cfg. A sample and explaination is put in misc
+- Add a new class CTDF, which calls some functions of lscvt.lib
+and tdf.lib.
+Comments:
+- CTDF need to be enhanced. The basic idea is to use a base class for
+initing, reading existing TDF file and saving repacked TDF file. No
+binding data (a virtual function) in base class. Three new class will
+be derived from the base class to bind three kinds of data: from
+WinCtrlSet, cls_nist.cfg, images. Then ClsMain and ClsDataEntry can
+call different class as they required.
+11/23/2004, Johnason
+*) Florida payment interface
+Changed files: SystemConfig.cpp/h
+Description:
+- It map FirstName, LastName, MidName, SufName before. Now it only map
+the Name field.
+*) Flat App Version
+Changed files: SystemConfig.cpp/h
+Description:
+- Read nFlatAppVersion in Cls_cls.cfg
+
+12/01/2003, Johnason
+*) Add code to delete transactions from nist_ipa, nist_ipa_pm, nist_ipa_print,
+nist_ipa_print_pm
+Changed files:
+- SystemTrans.cpp
+- SystemTransNew.cpp
+- SystemTrans.h
+Description:
+- Add one new function: CLSTransDeleteException
+- Call this new function in CLSTransDeleteRec() and CLSTransNewDeleteRec()
+- In this case, these four tables should not be put in INFO_TABLE. Before
+we put them into it, which will cause a bug: When the transaction has
+exception and has been scanned, the exception will be removed if user
+views demo and saves it.
+
+12/02/2004, Johnason
+*) Add config item FLAT_PHOTO in cls_scan.cfg
+Changed files:
+- SystemConfig.cpp
+- SystemDb.h
+Description:
+- Add code to read FLAT_PHOTO in cls_scan.cfg.
+12/02/2004, Eric
+*) Updated logic of checking FBI responses
+Changed files:
+- DaoQTransNew.cpp
+Description:
+- New logic to check FBI response
+12/06/2004, Eric
+*) Updated CLSTransInsertEmailRec()
+Changed files:
+- SystemTrans.cpp
+Description:
+- The variable szTblRev needs memset
+12/08/2004, Eric
+*) Added new SEND_OPTION to cls_cls.cfg
+Description:
+- Check whether all mandatory data have been captured and transaction
+is ready for sending out
+- SEND_OPTION = 11111100
+DataEntry|TP|Palm|Photo|Sign|DemoImage|Reserved|Reserved
+Changed files: SystemConfig.cpp/h, SystemTransNew.cpp/h
+12/09/2004, Eric
+*) Added new CLEAN_WHEN_LOGOFF to cls_cls.cfg
+This is to delete all completed transactions when log-off
+(for USSS - Child)
+Changed files:
+- SystemConfig.cpp/h
+12/10/2004, Johnason
+*) Add a config item PALM_CHECK_VERSION in cls_scan.cfg
+Changed files: SystemConfig.cpp/h
+Description:
+The default value is 0.
+
+If it is set to 2, use the new algorithm of palm sequence check.
+12/11/2004, Johnason
+*) Add severl parameters for palm sequence check in cls_scan.cfg
+Changed files: SystemConfig.cpp/h
+Description:
+Add them for new algorithm of palm sequence check
+Default values are 0
+12/13/2004, Johnason
+*) Add CHECK_IMAGE_BEFORE_SCAN in cls_scan.cfg
+Changed files: SystemConfig.cpp/h
+Description:
+Add ClsCfgScan.bCheckImageBeforeScan for CHECK_IMAGE_BEFORE_SCAN.
+The default value is false.
+*) Add a message in cls_msg.cfg. it is use to show a message to ask user
+whether ignore the existing images.
+Changed files: LSGlobal.cpp
+Description: Enlarge CLSCfgMsg size to 39, and add the new message item.
+12/13/2004, Johnason
+*) Fix a logic problem in Filter
+Changed Files: SystemTransNew.cpp, DaoQTransNew.cpp
+Purpose:
+- Filter didn't work for the transactions that came from bridge server.
+- Reason is in the Filter SQL statement, it put the wrong condition
+order for AND and OR statement.
+Description:
+- Change code in LoadNewQTrans, CLSTransNewLoadQ functions
+- Add parenthesises for condition statement and adjust the sequence.
+12/16/2004, Simon
+*) Added a new function CLSIoLogSprintf to support flexible logging
+capability which introduces the dependency on include/af_log.h and
+gdslib/gd_pub.h.
+Changed files: SystemIo.cpp/h
+12/17/2004, Eric
+*) Added a new config item to cls_scan.cfg, FLAT_PALM_OPTIONAL
+Changed files: SystemConfig.cpp/h
+*) Added a new config item to cls_scan.cfg, EXCEPTION_ALWAYS
+Always save excpetion data (For Mexico)
+
+Changed files: SystemConfig.cpp/h
+*) Added a new function call CLSDbDeleteRecord()
+Changed files: SystemDb.cpp/h
+01/06/2005, Simon
+*) Changed data structure CLS_CFG_CALLTAB and functions CLSCfgLoadCalltab()
+and CLSIoCallApp() to support application module in DLL mode;
+*) Added function CLSCfgGetFileName to get configuration file in order to
+reduce redundant code;
+*) Added cls_*.cfg for reference.
+Changed Files: SystemConfig.cpp/h, SystemIo.cpp/h
+Added Files: cls_*.cfg
+Description:
+- New changes keep compatible with previous installations. Only when
+the binary extension is 'dll', the system will try to load the given
+DLL at runtime and get the function 'StartDllModule' to launch the
+DLL module.
+01/07/2005, Simon
+*) Added new configuration item UID_POLICY in cls_login_ldap.cfg
+to control behavior when uid cannot obtained from ActiveDirectory.
+Purpose: This change is to accommodate changes made in coldapi to eliminiate
+the requirement of maintaining UID by end users such as USSS.
+Changed Files: SystemConfig.cpp/h, cls_login_ldap.cfg
+01/10/2005, Eric
+*) Increased CLS_TRANS_NEWQ_TXSNO_LEN to 30 in SystemTransNew.h, to enlarge
+trans_no buffer to 30 char long
+*) Update CLSCfgGetAutoTransNo() in SystemConfig.cpp, to support auto serial as 13 char
+long
+01/18/2005, Simon
+*) Fixed function prototypes of StartDllModule for runtime loading.
+Changes Files: SystemIo.h

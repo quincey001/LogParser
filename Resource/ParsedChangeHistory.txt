@@ -1,0 +1,171 @@
+Change ID:1|
+Changed Date:11/12/2004|
+Changed By:Simon|
+Summary:Added this file.,,|
+Description:|
+Purpose:|
+Changed Files:|
+Added Files:|
+
+Change ID:2|
+Changed Date:11/16/2004|
+Changed By:Johnason|
+Summary:Support saving TDF file|
+Description:- Add NIST_SUPPORT in cls_cls.cfg- Add cls_nist.cfg. A sample and explaination is put in misc- Add a new class CTDF, which calls some functions of lscvt.liband tdf.lib.|
+Purpose:|
+Changed Files:SystemConfig.cpp/h|
+Added Files:TDF.cpp/h|
+
+Change ID:3|
+Changed Date:11/23/2004|
+Changed By:Johnason|
+Summary:Florida payment interface,Flat App Version|
+Description:- It map FirstName, LastName, MidName, SufName before. Now it only mapthe Name field.- Read nFlatAppVersion in Cls_cls.cfg|
+Purpose:|
+Changed Files:SystemConfig.cpp/h,SystemConfig.cpp/h|
+Added Files:|
+
+Change ID:4|
+Changed Date:12/01/2003|
+Changed By:Johnason|
+Summary:Add code to delete transactions from nist_ipa, nist_ipa_pm, nist_ipa_print,,nist_ipa_print_pm|
+Description:- Add one new function: CLSTransDeleteException- Call this new function in CLSTransDeleteRec() and CLSTransNewDeleteRec()- In this case, these four tables should not be put in INFO_TABLE. Beforewe put them into it, which will cause a bug: When the transaction hasexception and has been scanned, the exception will be removed if userviews demo and saves it.|
+Purpose:|
+Changed Files:,- SystemTrans.cpp,- SystemTransNew.cpp,- SystemTrans.h|
+Added Files:|
+
+Change ID:5|
+Changed Date:12/02/2004|
+Changed By:Johnason|
+Summary:Add config item FLAT_PHOTO in cls_scan.cfg|
+Description:- Add code to read FLAT_PHOTO in cls_scan.cfg.|
+Purpose:|
+Changed Files:,- SystemConfig.cpp,- SystemDb.h|
+Added Files:|
+
+Change ID:6|
+Changed Date:12/02/2004|
+Changed By:Eric|
+Summary:Updated logic of checking FBI responses|
+Description:- New logic to check FBI response|
+Purpose:|
+Changed Files:,- DaoQTransNew.cpp|
+Added Files:|
+
+Change ID:7|
+Changed Date:12/06/2004|
+Changed By:Eric|
+Summary:Updated CLSTransInsertEmailRec()|
+Description:- The variable szTblRev needs memset|
+Purpose:|
+Changed Files:,- SystemTrans.cpp|
+Added Files:|
+
+Change ID:8|
+Changed Date:12/08/2004|
+Changed By:Eric|
+Summary:Added new SEND_OPTION to cls_cls.cfg|
+Description:- Check whether all mandatory data have been captured and transactionis ready for sending out- SEND_OPTION = 11111100DataEntry|TP|Palm|Photo|Sign|DemoImage|Reserved|Reserved|
+Purpose:|
+Changed Files:SystemConfig.cpp/h, SystemTransNew.cpp/h,|
+Added Files:|
+
+Change ID:9|
+Changed Date:12/09/2004|
+Changed By:Eric|
+Summary:Added new CLEAN_WHEN_LOGOFF to cls_cls.cfg,This is to delete all completed transactions when log-off,(for USSS - Child)|
+Description:|
+Purpose:|
+Changed Files:,- SystemConfig.cpp/h,|
+Added Files:|
+
+Change ID:10|
+Changed Date:12/10/2004|
+Changed By:Johnason|
+Summary:Add a config item PALM_CHECK_VERSION in cls_scan.cfg|
+Description:The default value is 0.If it is set to 2, use the new algorithm of palm sequence check.|
+Purpose:|
+Changed Files:SystemConfig.cpp/h|
+Added Files:|
+
+Change ID:11|
+Changed Date:12/11/2004|
+Changed By:Johnason|
+Summary:Add severl parameters for palm sequence check in cls_scan.cfg|
+Description:Add them for new algorithm of palm sequence checkDefault values are 0|
+Purpose:|
+Changed Files:SystemConfig.cpp/h|
+Added Files:|
+
+Change ID:12|
+Changed Date:12/13/2004|
+Changed By:Johnason|
+Summary:Add CHECK_IMAGE_BEFORE_SCAN in cls_scan.cfg,Add a message in cls_msg.cfg. it is use to show a message to ask user,whether ignore the existing images.|
+Description:Add ClsCfgScan.bCheckImageBeforeScan for CHECK_IMAGE_BEFORE_SCAN.The default value is false.|
+Purpose:|
+Changed Files:SystemConfig.cpp/h,LSGlobal.cpp|
+Added Files:|
+
+Change ID:13|
+Changed Date:12/13/2004|
+Changed By:Johnason|
+Summary:Fix a logic problem in Filter|
+Description:- Change code in LoadNewQTrans, CLSTransNewLoadQ functions- Add parenthesises for condition statement and adjust the sequence.|
+Purpose:- Filter didn't work for the transactions that came from bridge server.- Reason is in the Filter SQL statement, it put the wrong conditionorder for AND and OR statement.|
+Changed Files:SystemTransNew.cpp, DaoQTransNew.cpp|
+Added Files:|
+
+Change ID:14|
+Changed Date:12/16/2004|
+Changed By:Simon|
+Summary:Added a new function CLSIoLogSprintf to support flexible logging,capability which introduces the dependency on include/af_log.h and,gdslib/gd_pub.h.|
+Description:|
+Purpose:|
+Changed Files:SystemIo.cpp/h,|
+Added Files:|
+
+Change ID:15|
+Changed Date:12/17/2004|
+Changed By:Eric|
+Summary:Added a new config item to cls_scan.cfg, FLAT_PALM_OPTIONAL,Added a new config item to cls_scan.cfg, EXCEPTION_ALWAYS,Always save excpetion data (For Mexico),,Added a new function call CLSDbDeleteRecord()|
+Description:|
+Purpose:|
+Changed Files:SystemConfig.cpp/h,SystemConfig.cpp/h,SystemDb.cpp/h,|
+Added Files:|
+
+Change ID:16|
+Changed Date:01/06/2005|
+Changed By:Simon|
+Summary:Changed data structure CLS_CFG_CALLTAB and functions CLSCfgLoadCalltab(),and CLSIoCallApp() to support application module in DLL mode;,Added function CLSCfgGetFileName to get configuration file in order to,reduce redundant code;,Added cls_*.cfg for reference.|
+Description:- New changes keep compatible with previous installations. Only whenthe binary extension is 'dll', the system will try to load the givenDLL at runtime and get the function 'StartDllModule' to launch theDLL module.|
+Purpose:|
+Changed Files:SystemConfig.cpp/h, SystemIo.cpp/h|
+Added Files:cls_*.cfg|
+
+Change ID:17|
+Changed Date:01/07/2005|
+Changed By:Simon|
+Summary:Added new configuration item UID_POLICY in cls_login_ldap.cfg,to control behavior when uid cannot obtained from ActiveDirectory.|
+Description:|
+Purpose:the requirement of maintaining UID by end users such as USSS.|
+Changed Files:SystemConfig.cpp/h, cls_login_ldap.cfg,|
+Added Files:|
+
+Change ID:18|
+Changed Date:01/10/2005|
+Changed By:Eric|
+Summary:Increased CLS_TRANS_NEWQ_TXSNO_LEN to 30 in SystemTransNew.h, to enlarge,trans_no buffer to 30 char long,Update CLSCfgGetAutoTransNo() in SystemConfig.cpp, to support auto serial as 13 char,long,|
+Description:|
+Purpose:|
+Changed Files:|
+Added Files:|
+
+Change ID:19|
+Changed Date:01/18/2005|
+Changed By:Simon|
+Summary:Fixed function prototypes of StartDllModule for runtime loading.,Changes Files: SystemIo.h|
+Description:|
+Purpose:|
+Changed Files:|
+Added Files:|
+

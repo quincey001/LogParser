@@ -1,0 +1,15 @@
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.csproj.AssemblyReference.cache
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.AssemblyInfoInputs.cache
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.AssemblyInfo.cs
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.csproj.CoreCompileInputs.cache
+/Users/user/dotnet_projects/Parser/Parser/bin/Debug/net7.0/Parser
+/Users/user/dotnet_projects/Parser/Parser/bin/Debug/net7.0/Parser.deps.json
+/Users/user/dotnet_projects/Parser/Parser/bin/Debug/net7.0/Parser.runtimeconfig.json
+/Users/user/dotnet_projects/Parser/Parser/bin/Debug/net7.0/Parser.dll
+/Users/user/dotnet_projects/Parser/Parser/bin/Debug/net7.0/Parser.pdb
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.dll
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/refint/Parser.dll
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.pdb
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/Parser.genruntimeconfig.cache
+/Users/user/dotnet_projects/Parser/Parser/obj/Debug/net7.0/ref/Parser.dll
