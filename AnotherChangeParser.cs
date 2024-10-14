@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Parser
 {
-	public class AnotherChangeParser
+	public class AnotherChangeParser : IParser
 	{
         List<ChangeEntry> changes = new List<ChangeEntry>();
 
@@ -16,7 +16,7 @@ namespace Parser
         }
 
 
-        public void Parsing(string filePath)
+        public void Parse(string filePath)
 		{
 			// read all lines from the file
 			try

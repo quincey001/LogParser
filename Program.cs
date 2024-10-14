@@ -19,7 +19,7 @@ namespace Parser
                 //changesParser.Parse(filePath);
                 //changesParser.SaveParsedData(saveFile);
                 //Console.WriteLine($"Parsing completed successfully. Parsed data saved to {saveFile}.");
-                anotherChangeParser.Parsing(filePath);
+                anotherChangeParser.Parse(filePath);
                 anotherChangeParser.SaveParsedData(saveFile);
             }
             catch (Exception ex)
